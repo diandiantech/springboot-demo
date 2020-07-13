@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="logging.path" scope="context" source="logging.path"/>
+    <springProperty name="spring.application.name" scope="context" source="spring.application.name"/>
+
+    <property name="LOG_PATH" value="${logging.path:-${user.home}/${spring.application.name}/logs}"/>
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n"/>
+    <property name="STATS_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] - %msg%n"/>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="springbootDemoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/springboot-demo.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/springboot-demo.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>2</maxHistory>
+            <totalSizeCap>2GB</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>1GB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <springProfile name="production">
+        <root level="INFO">
+            <appender-ref ref="springbootDemoAppender" />
+        </root>
+    </springProfile>
+
+    <springProfile name="!production">
+        <root level="INFO">
+            <appender-ref ref="springbootDemoAppender" />
+            <appender-ref ref="consoleAppender" />
+        </root>
+    </springProfile>
+</configuration>

@@ -1,0 +1,56 @@
+version: '3.3'
+
+services:
+  springboot-demo:
+    image: springboot-demo:v1
+    container_name: springboot-demo
+    depends_on:
+      - springboot-demo-mysql
+    ports:
+      - 8000:8000
+    volumes:
+      - springboot-demo-logs:/home/admin/springboot-demo/logs
+    networks:
+      - springboot-demo-net
+
+  springboot-demo-mysql:
+    image: mysql:5.7
+    container_name: springboot-demo-mysql
+    ports:
+      - 13306:3306
+    volumes:
+      - springboot-demo-mysql-data:/var/lib/mysql
+    restart: always
+    tty: true
+    command: >
+      mysqld --lower_case_table_names=1
+             --character_set_server=utf8mb4
+             --explicit_defaults_for_timestamp
+             --max_connections=20
+             --general_log='ON'
+             --slow_query_log='ON'
+             --default-time-zone='+8:00'
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: springboot-demo
+      MYSQL_USER: springboot-demo
+      MYSQL_PASSWORD: springboot-demo
+    networks:
+      - springboot-demo-net
+
+# docker network create -d bridge springboot-demo-net
+# docker volume create springboot-demo-mysql-data
+# docker volume create springboot-demo-logs
+# 本地连接：mysql -h127.0.0.1 -P13306 -uroot -proot
+#          mysql -h127.0.0.1 -P13306 -uspringboot-demo -pspringboot-demo -Dspringboot-demo
+# 启动docker：docker-compose up -d
+networks:
+  springboot-demo-net:
+    external: true
+
+volumes:
+  springboot-demo-mysql-data:
+    external: true
+  springboot-demo-logs:
+    external: true

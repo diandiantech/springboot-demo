@@ -1,0 +1,215 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dinglevin</groupId>
+    <artifactId>springboot-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springboot-demo</name>
+
+    <modules>
+        <module>springboot-demo-client</module>
+        <module>springboot-demo-infra</module>
+        <module>springboot-demo-dal</module>
+        <module>springboot-demo-biz</module>
+        <module>springboot-demo-web</module>
+        <module>springboot-demo-starter</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+
+        <guava.version>28.1-jre</guava.version>
+        <fastjson.version>1.2.68</fastjson.version>
+        <commons-lang.version>3.7</commons-lang.version>
+        <commons-collections.version>4.1</commons-collections.version>
+        <commons-io.version>2.6</commons-io.version>
+        <dozer.version>5.5.1</dozer.version>
+        <lombok.version>1.16.20</lombok.version>
+        <slf4j.version>1.7.25</slf4j.version>
+
+        <mysql-connector.version>6.0.6</mysql-connector.version>
+        <mybatis-spring-boot.version>2.1.1</mybatis-spring-boot.version>
+
+        <springboot-demo.version>0.0.1-SNAPSHOT</springboot-demo.version>
+
+        <junit.version>4.12</junit.version>
+        <h2.version>1.4.197</h2.version>
+
+        <maven.plugin.docker.version>1.1.1</maven.plugin.docker.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dinglevin</groupId>
+                <artifactId>springboot-demo-client</artifactId>
+                <version>${springboot-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dinglevin</groupId>
+                <artifactId>springboot-demo-infra</artifactId>
+                <version>${springboot-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dinglevin</groupId>
+                <artifactId>springboot-demo-dal</artifactId>
+                <version>${springboot-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dinglevin</groupId>
+                <artifactId>springboot-demo-biz</artifactId>
+                <version>${springboot-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dinglevin</groupId>
+                <artifactId>springboot-demo-web</artifactId>
+                <version>${springboot-demo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <configuration>
+                                <tasks>
+                                    <unzip src="${project.build.directory}/${project.build.finalName}.${project.packaging}"
+                                           dest="${project.build.directory}/springboot-demo" />
+                                    <tar basedir="${project.build.directory}/springboot-demo/"
+                                         destfile="${project.build.directory}/springboot-demo.tgz"
+                                         compression="gzip" />
+                                </tasks>
+                            </configuration>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${maven.plugin.docker.version}</version>
+                    <configuration>
+                        <imageName>springboot-demo:v1</imageName>
+                        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                        <imageTags>
+                            <imageTag>v1</imageTag>
+                        </imageTags>
+                        <resources>
+                            <resource>
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>springboot-demo.tgz</include>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
+
