@@ -8,8 +8,9 @@ springboot多模块项目基本骨架，主要包含以下模块（类似DDD层�
 6. client模块：和外部交互的模型、接口定义。
 
 # 环境依赖
-1. docker
-2. mysql客户端
+1. maven
+2. docker
+3. mysql客户端
 
 # 应用启动
 1. 执行根目录下脚本：`./cleanRestart.sh`
