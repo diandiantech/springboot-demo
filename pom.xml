@@ -9,22 +9,23 @@
     <name>springboot-demo</name>
 
     <modules>
-        <module>springboot-demo-client</module>
         <module>springboot-demo-infra</module>
         <module>springboot-demo-dal</module>
+        <module>springboot-demo-model</module>
         <module>springboot-demo-biz</module>
         <module>springboot-demo-web</module>
         <module>springboot-demo-starter</module>
+        <module>springboot-demo-shiro</module>
     </modules>
 
     <properties>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <java.version>1.8</java.version>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
 
         <guava.version>28.1-jre</guava.version>
         <fastjson.version>1.2.68</fastjson.version>
@@ -32,15 +33,16 @@
         <commons-collections.version>4.1</commons-collections.version>
         <commons-io.version>2.6</commons-io.version>
         <dozer.version>5.5.1</dozer.version>
-        <lombok.version>1.16.20</lombok.version>
+        <lombok.version>1.18.16</lombok.version>
         <slf4j.version>1.7.25</slf4j.version>
 
-        <mysql-connector.version>6.0.6</mysql-connector.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
         <mybatis-spring-boot.version>2.1.1</mybatis-spring-boot.version>
+        <shiro-spring-boot-web.version>1.5.3</shiro-spring-boot-web.version>
 
         <springboot-demo.version>0.0.1-SNAPSHOT</springboot-demo.version>
 
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <h2.version>1.4.197</h2.version>
 
         <maven.plugin.docker.version>1.1.1</maven.plugin.docker.version>
@@ -108,10 +110,15 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring-boot.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring-boot-web-starter</artifactId>
+                <version>${shiro-spring-boot-web.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.dinglevin</groupId>
-                <artifactId>springboot-demo-client</artifactId>
+                <artifactId>springboot-demo-model</artifactId>
                 <version>${springboot-demo.version}</version>
             </dependency>
             <dependency>
@@ -127,6 +134,11 @@
             <dependency>
                 <groupId>com.dinglevin</groupId>
                 <artifactId>springboot-demo-biz</artifactId>
+                <version>${springboot-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dinglevin</groupId>
+                <artifactId>springboot-demo-shiro</artifactId>
                 <version>${springboot-demo.version}</version>
             </dependency>
             <dependency>

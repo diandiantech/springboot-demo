@@ -1,7 +1,7 @@
-package com.dinglevin.demo.web;
+package com.dinglevin.demo.web.controllers;
 
 import com.dinglevin.demo.biz.repository.UserRepository;
-import com.dinglevin.demo.client.User;
+import com.dinglevin.demo.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

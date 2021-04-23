@@ -13,6 +13,10 @@
     <dependencies>
         <dependency>
             <groupId>com.dinglevin</groupId>
+            <artifactId>springboot-demo-shiro</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dinglevin</groupId>
             <artifactId>springboot-demo-web</artifactId>
         </dependency>
     </dependencies>

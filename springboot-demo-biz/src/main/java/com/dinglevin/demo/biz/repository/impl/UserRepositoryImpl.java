@@ -1,7 +1,7 @@
 package com.dinglevin.demo.biz.repository.impl;
 
 import com.dinglevin.demo.biz.repository.UserRepository;
-import com.dinglevin.demo.client.User;
+import com.dinglevin.demo.model.User;
 import com.dinglevin.demo.dal.dao.UserDAO;
 import com.dinglevin.demo.dal.dataobject.UserDO;
 import com.dinglevin.demo.infra.utils.DozerBeanMapperUtils;

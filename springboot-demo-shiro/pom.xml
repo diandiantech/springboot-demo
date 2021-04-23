@@ -8,26 +8,21 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>springboot-demo-biz</artifactId>
+    <artifactId>springboot-demo-shiro</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.dinglevin</groupId>
             <artifactId>springboot-demo-model</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.dinglevin</groupId>
-            <artifactId>springboot-demo-infra</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.dinglevin</groupId>
-            <artifactId>springboot-demo-dal</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-web-starter</artifactId>
         </dependency>
     </dependencies>
+
 </project>

@@ -14,7 +14,7 @@ services:
       - springboot-demo-net
 
   springboot-demo-mysql:
-    image: mysql:5.7
+    image: mysql:8.0
     container_name: springboot-demo-mysql
     ports:
       - 13306:3306

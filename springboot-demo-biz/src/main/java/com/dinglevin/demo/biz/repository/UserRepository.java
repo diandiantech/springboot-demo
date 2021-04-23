@@ -1,6 +1,6 @@
 package com.dinglevin.demo.biz.repository;
 
-import com.dinglevin.demo.client.User;
+import com.dinglevin.demo.model.User;
 
 import java.util.List;
 
