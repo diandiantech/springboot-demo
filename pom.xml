@@ -43,7 +43,7 @@
         <springboot-demo.version>0.0.1-SNAPSHOT</springboot-demo.version>
 
         <junit.version>4.13.1</junit.version>
-        <h2.version>1.4.197</h2.version>
+        <h2.version>2.0.206</h2.version>
 
         <maven.plugin.docker.version>1.1.1</maven.plugin.docker.version>
     </properties>
