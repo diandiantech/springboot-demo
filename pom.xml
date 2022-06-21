@@ -36,7 +36,7 @@
         <lombok.version>1.18.16</lombok.version>
         <slf4j.version>1.7.25</slf4j.version>
 
-        <mysql-connector.version>8.0.16</mysql-connector.version>
+        <mysql-connector.version>8.0.28</mysql-connector.version>
         <mybatis-spring-boot.version>2.1.1</mybatis-spring-boot.version>
         <shiro-spring-boot-web.version>1.5.3</shiro-spring-boot-web.version>
 
